@@ -23,6 +23,8 @@ interface BearStore {
   computed: {
     totalBears: number;
   };
+
+  // totalBears: () => number;
 }
 
 export const useBearStore = create<BearStore>((set, get) => ({
@@ -64,4 +66,9 @@ export const useBearStore = create<BearStore>((set, get) => ({
       );
     },
   },
+
+  // si uso el middleware de zustand-persist, no puedo usar funciones computed "correctamente"
+  // totalBears: () => {
+  //   return get().blackBears + get().polarBears + get().pandaBears + get().bears.length;
+  // }
 }));
